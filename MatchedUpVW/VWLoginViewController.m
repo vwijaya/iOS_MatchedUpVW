@@ -95,20 +95,20 @@
             
             NSMutableDictionary *userProfile = [[NSMutableDictionary alloc] initWithCapacity:8];
             
-            if(userDictionary[@"name"])
-                userProfile[@"name"] = userDictionary[@"name"];
-            if(userDictionary[@"first_name"])
-                userProfile[@"first_name"] = userDictionary[@"first_name"];
-            if(userDictionary[@"location"][@"name"])
-                userProfile[@"location"] = userDictionary[@"location"][@"name"];
-            if(userDictionary[@"gender"])
-                userProfile[@"gender"] = userDictionary[@"gender"];
-            if(userDictionary[@"birthday"])
-                userProfile[@"birthday"] = userDictionary[@"birthday"];
-            if(userDictionary[@"interested_in"])
-                userProfile[@"interested_in"] = userDictionary[@"interested_in"];
+            if(userDictionary[kVWUserProfileNameKey])
+                userProfile[kVWUserProfileNameKey] = userDictionary[kVWUserProfileNameKey];
+            if(userDictionary[kVWUserProfileFirstNameKey])
+                userProfile[kVWUserProfileFirstNameKey] = userDictionary[kVWUserProfileFirstNameKey];
+            if(userDictionary[kVWUserProfileLocationKey][kVWUserProfileNameKey])
+                userProfile[kVWUserProfileLocationKey] = userDictionary[kVWUserProfileLocationKey][kVWUserProfileNameKey];
+            if(userDictionary[kVWUserProfileGenderKey])
+                userProfile[kVWUserProfileGenderKey] = userDictionary[kVWUserProfileGenderKey];
+            if(userDictionary[kVWUserProfileBirthdayKey])
+                userProfile[kVWUserProfileBirthdayKey] = userDictionary[kVWUserProfileBirthdayKey];
+            if(userDictionary[kVWUserProfileInterestedInKey])
+                userProfile[kVWUserProfileInterestedInKey] = userDictionary[kVWUserProfileInterestedInKey];
             
-            [[PFUser currentUser] setObject:userProfile forKey:@"profile"];
+            [[PFUser currentUser] setObject:userProfile forKey:kVWUserProfileKey];
             [[PFUser currentUser] saveInBackground];
             
         } else {

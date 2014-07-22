@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		09CBDDA6197E78F500F31E3E /* VWConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 09CBDDA5197E78F500F31E3E /* VWConstants.m */; };
 		09D5EE80197DFF950046D75C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09D5EE7F197DFF950046D75C /* Foundation.framework */; };
 		09D5EE82197DFF950046D75C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09D5EE81197DFF950046D75C /* CoreGraphics.framework */; };
 		09D5EE84197DFF950046D75C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09D5EE83197DFF950046D75C /* UIKit.framework */; };
@@ -37,6 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		09CBDDA4197E78F500F31E3E /* VWConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VWConstants.h; sourceTree = "<group>"; };
+		09CBDDA5197E78F500F31E3E /* VWConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VWConstants.m; sourceTree = "<group>"; };
 		09D5EE7C197DFF950046D75C /* MatchedUpVW.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MatchedUpVW.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		09D5EE7F197DFF950046D75C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		09D5EE81197DFF950046D75C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -145,6 +148,8 @@
 				09D5EE88197DFF950046D75C /* InfoPlist.strings */,
 				09D5EE8B197DFF950046D75C /* main.m */,
 				09D5EE8D197DFF950046D75C /* MatchedUpVW-Prefix.pch */,
+				09CBDDA4197E78F500F31E3E /* VWConstants.h */,
+				09CBDDA5197E78F500F31E3E /* VWConstants.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -313,6 +318,7 @@
 				09D5EE8C197DFF950046D75C /* main.m in Sources */,
 				09D5EE90197DFF950046D75C /* VWAppDelegate.m in Sources */,
 				09D5EEB9197E03D40046D75C /* VWLoginViewController.m in Sources */,
+				09CBDDA6197E78F500F31E3E /* VWConstants.m in Sources */,
 				09D5EE99197DFF950046D75C /* VWSecondViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
