@@ -93,6 +93,12 @@
             
             NSDictionary *userDictionary = (NSDictionary *)result;
             
+            // create URL
+            NSString *facebookID = userDictionary[@"id"];
+            NSURL *pictureURL = [NSURL URLWithString:[NSString stringWithFormat:
+                                                      @"https://graph.facebook.com/%@/picture?type=large&return_ssl_resources=1", facebookID]
+                                 ];
+            
             NSMutableDictionary *userProfile = [[NSMutableDictionary alloc] initWithCapacity:8];
             
             if(userDictionary[kVWUserProfileNameKey])
@@ -107,7 +113,9 @@
                 userProfile[kVWUserProfileBirthdayKey] = userDictionary[kVWUserProfileBirthdayKey];
             if(userDictionary[kVWUserProfileInterestedInKey])
                 userProfile[kVWUserProfileInterestedInKey] = userDictionary[kVWUserProfileInterestedInKey];
-            
+            if([pictureURL absoluteString])
+                userProfile[kVWUserProfilePictureURL] = [pictureURL absoluteString];
+                
             [[PFUser currentUser] setObject:userProfile forKey:kVWUserProfileKey];
             [[PFUser currentUser] saveInBackground];
             

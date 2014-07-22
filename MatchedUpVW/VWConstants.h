@@ -10,6 +10,8 @@
 
 @interface VWConstants : NSObject
 
+#pragma mark - User class
+
 extern NSString *const kVWUserProfileKey;
 extern NSString *const kVWUserProfileNameKey;
 extern NSString *const kVWUserProfileFirstNameKey;
@@ -17,5 +19,12 @@ extern NSString *const kVWUserProfileLocationKey;
 extern NSString *const kVWUserProfileGenderKey;
 extern NSString *const kVWUserProfileBirthdayKey;
 extern NSString *const kVWUserProfileInterestedInKey;
+extern NSString *const kVWUserProfilePictureURL;
+
+#pragma mark - Photo class
+
+extern NSString *const kVWPhotoClassKey;
+extern NSString *const kVWPhotoUserKey;
+extern NSString *const kVWPhotoPictureKey;
 
 @end
