@@ -22,6 +22,7 @@
 		09D5EEA4197DFF950046D75C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09D5EE83197DFF950046D75C /* UIKit.framework */; };
 		09D5EEAC197DFF950046D75C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 09D5EEAA197DFF950046D75C /* InfoPlist.strings */; };
 		09D5EEAE197DFF950046D75C /* MatchedUpVWTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 09D5EEAD197DFF950046D75C /* MatchedUpVWTests.m */; };
+		09D5EEB9197E03D40046D75C /* VWLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09D5EEB8197E03D40046D75C /* VWLoginViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,8 @@
 		09D5EEA9197DFF950046D75C /* MatchedUpVWTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MatchedUpVWTests-Info.plist"; sourceTree = "<group>"; };
 		09D5EEAB197DFF950046D75C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		09D5EEAD197DFF950046D75C /* MatchedUpVWTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MatchedUpVWTests.m; sourceTree = "<group>"; };
+		09D5EEB7197E03D40046D75C /* VWLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VWLoginViewController.h; sourceTree = "<group>"; };
+		09D5EEB8197E03D40046D75C /* VWLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VWLoginViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +121,7 @@
 				09D5EE8E197DFF950046D75C /* VWAppDelegate.h */,
 				09D5EE8F197DFF950046D75C /* VWAppDelegate.m */,
 				09D5EE91197DFF950046D75C /* Main.storyboard */,
+				09D5EEBA197E03DC0046D75C /* Login */,
 				09D5EE94197DFF950046D75C /* VWFirstViewController.h */,
 				09D5EE95197DFF950046D75C /* VWFirstViewController.m */,
 				09D5EE97197DFF950046D75C /* VWSecondViewController.h */,
@@ -155,6 +159,15 @@
 				09D5EEAA197DFF950046D75C /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		09D5EEBA197E03DC0046D75C /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				09D5EEB7197E03D40046D75C /* VWLoginViewController.h */,
+				09D5EEB8197E03D40046D75C /* VWLoginViewController.m */,
+			);
+			name = Login;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,6 +271,7 @@
 				09D5EE96197DFF950046D75C /* VWFirstViewController.m in Sources */,
 				09D5EE8C197DFF950046D75C /* main.m in Sources */,
 				09D5EE90197DFF950046D75C /* VWAppDelegate.m in Sources */,
+				09D5EEB9197E03D40046D75C /* VWLoginViewController.m in Sources */,
 				09D5EE99197DFF950046D75C /* VWSecondViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
