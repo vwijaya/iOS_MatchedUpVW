@@ -11,6 +11,7 @@
 @interface VWLoginViewController ()
 
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
+@property (strong, nonatomic) NSMutableData *imageData;
 
 @end
 
@@ -119,6 +120,7 @@
             [[PFUser currentUser] setObject:userProfile forKey:kVWUserProfileKey];
             [[PFUser currentUser] saveInBackground];
             
+            [self requestImage];
         } else {
             
             NSLog(@"Error in FB request %@", error);
@@ -126,6 +128,64 @@
     }];
 }
 
+-(void) uploadPFFileToParse:(UIImage *)image
+{
+    NSData *imageData = UIImageJPEGRepresentation(image, 0.8);
+    
+    if(!imageData) {
+        NSLog(@"Image data was not found");
+        return;
+    }
+    
+    PFFile *photoFile = [PFFile fileWithData:imageData];
+    [photoFile saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error)
+     {
+         if(succeeded){
+             PFObject *photo = [PFObject objectWithClassName:kVWPhotoClassKey];
+             [photo setObject:[PFUser currentUser] forKey:kVWPhotoUserKey];
+             [photo setObject:photoFile forKey:kVWPhotoPictureKey];
+             [photo saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error)
+              {
+                  NSLog(@"Successfully retrieving user photo");
+              }];
+         } else {
+             NSLog(@"Something wrong");
+         }
+     }];
+}
+
+-(void) requestImage
+{
+    PFQuery *query = [PFQuery queryWithClassName:kVWPhotoClassKey];
+    [query whereKey:kVWPhotoUserKey equalTo:[PFUser currentUser]];
+    [query countObjectsInBackgroundWithBlock:^(int number, NSError *error)
+     {
+         if(number == 0) {
+             PFUser *user = [PFUser currentUser];
+             self.imageData = [[NSMutableData alloc] init];
+             NSURL *profilePictureURL = [NSURL URLWithString:
+                                         user[kVWUserProfileKey][kVWUserProfilePictureURL]];
+             NSURLRequest *urlRequest = [NSURLRequest requestWithURL:
+                                         profilePictureURL cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:4.0f];
+             NSURLConnection *urlConnection = [[NSURLConnection alloc] initWithRequest:urlRequest delegate:self];
+             
+             if(!urlConnection) {
+                 NSLog(@"Failed to establish URL connection");
+             }
+         }
+     }];
+}
+
+-(void) connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
+{
+    [self.imageData appendData:data];
+}
+
+-(void) connectionDidFinishLoading:(NSURLConnection *) connection
+{
+    UIImage *profileImage = [UIImage imageWithData:self.imageData];
+    [self uploadPFFileToParse:profileImage];
+}
 
 /*
 #pragma mark - Navigation
