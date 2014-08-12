@@ -10,4 +10,6 @@
 
 @interface VWSecondViewController : UIViewController
 
+@property (strong, nonatomic) IBOutlet UIImageView *profilePictureImageView;
+
 @end
